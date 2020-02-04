@@ -1,0 +1,23 @@
+
+  <div class="mainContainer" style="background-color: white">
+      <div>
+        <p class="textInWidget serviceName"><b>Meteo</b></p>
+        <hr>
+
+        <p class="textInWidget">{{this.meteo ? this.meteo.city_name : "Invalid city name"}}</p>
+
+        <img *ngIf="this.meteo && this.meteo.weather.code < 300" src="assets/t01d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code < 400 && this.meteo.weather.code >= 300" src="assets/d01d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code < 600 && this.meteo.weather.code >= 500" src="assets/r01d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code < 700 && this.meteo.weather.code >= 600" src="assets/s01d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code < 800 && this.meteo.weather.code >= 700" src="assets/a01d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code == 800" src="assets/c01d.png" width="120" height="90">
+        <img *ngIf="this.meteo && (this.meteo.weather.code == 801 || this.meteo.weather.code == 802)" src="assets/c02d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code == 803" src="assets/c03d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code == 804" src="assets/c04d.png" width="120" height="90">
+        <img *ngIf="this.meteo && this.meteo.weather.code == 900" src="assets/u00d.png" width="120" height="90">
+
+        <p class="textInWidget">{{this.meteo ? this.meteo.temp + " C°" : ""}}</p>
+      </div>
+    </div>
+

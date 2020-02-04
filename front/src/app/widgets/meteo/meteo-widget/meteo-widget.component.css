@@ -1,0 +1,18 @@
+.mainContainer {
+  text-align: center;
+}
+
+.serviceName {
+  font-size: 30px;
+}
+
+.card{
+  background-color: aqua;
+  min-height: 240px;
+  min-width: 200px;
+}
+
+.Ytimg{
+  width: 100%;
+  height: auto;
+}

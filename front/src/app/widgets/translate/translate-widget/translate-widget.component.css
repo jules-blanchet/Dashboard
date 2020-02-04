@@ -1,0 +1,21 @@
+.mainContainer {
+  max-width: 600px;
+  margin: 10px;
+}
+
+.mdb-select {
+  margin: 15px;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.btn {
+  margin: 15px;
+}
+
+.translatedText {
+  border: 1px outset black;
+  padding: 5px;
+}

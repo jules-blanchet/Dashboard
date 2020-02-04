@@ -1,0 +1,57 @@
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card {
+  flex: 0 0 auto;
+  text-align: center;
+  background-color: white;
+  vertical-align: middle;
+}
+
+.cocktailDescription {
+  color: black;
+  size: 20px;
+  font-weight: bold;
+}
+
+.moreImg {
+  margin-top: 275px;
+  margin-left: 60px;
+}
+
+.selector {
+  margin-top: 20px;
+  height: 40px;
+  width: 200px;
+}
+
+.inputContainer {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.cocktailContainer {
+  text-align: center;
+  align-content: center;
+}
+
+.cocktailTitle {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.cocktailInstruction {
+  font-style: italic;
+  font-size: 15px;
+  word-wrap: break-word;
+  height: auto;
+  display: inline-block;
+}
+
+.cocktailIngredient {
+  font-weight: bold;
+  font-size: 17px;
+}

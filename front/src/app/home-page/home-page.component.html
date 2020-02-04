@@ -1,0 +1,94 @@
+
+<button class="btn btn-primary btn-lg" (click)="showHide()" >
+        <fa name="plus"></fa>
+</button>
+<br />
+<div class="row" style="margin-left: auto;margin-right: auto;">
+        <div id="myDIV" class="col col-md-4" style="background-color: white;display: none;">
+                <div class="container">
+                        <div class="row">
+                                <button  class="btn btn-default pull-right" style="float: right;">
+                                        <fa name="cog"></fa>
+                                </button>
+                                <button  class="btn btn-default pull-right" (click)="showHide()" style="float: right;">
+                                        <fa name="close"></fa>
+                                </button>
+                        </div>
+                </div>
+                <div class="container">
+                        <div class="card">
+                                <form [formGroup]="widgetForm" (ngSubmit)="addWidget()">
+                                        <div class="form-group">
+                                            <label for="widget" style="display: block">
+                                                Selectionner votre widget
+                                                <select id="widget" formControlName="widget" style="display: block" (change)="changeSelectedWidget($event)">
+                                                    <option value="youtube">youtube</option>
+                                                    <option value="meteo">météo</option>
+                                                    <option value="exchanges">exchanges</option>
+                                                    <option value="movie">movie</option>
+                                                    <option value="cocktail">cocktail</option>
+                                                    <option value="translate">translate</option>
+                                                    <option value="nasa">nasa</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div *ngIf="needParameter" class="form-group">
+                                            <label for="param1">{{parameterName}}</label>
+                                            <textarea id="param1"
+                                                    class="form-control" formControlName="param1">
+                                            </textarea>
+                                        </div>
+                                        <div *ngIf="error" class="form-group">
+                                          <p style="color: red">Merci de renseigner tous les champs !</p>
+                                        </div>
+                                        <button class="btn btn-success" [disabled]="widgetForm.invalid"
+                                                type="submit">Enregistrer
+                                        </button>
+
+                                </form>
+                        </div>
+                </div>
+        </div>
+        <div *ngFor="let book of widget; index as i" class="col col-md-4" style="background-color: white;">
+                <div class="container">
+                        <div class="row">
+                                {{i}}
+                                <button *ngIf="book.activate == true" class="btn btn-default pull-right" (click)="onMoveWidget(i, i-1)" style="float: right;">
+                                        <fa name="arrow-left"></fa>
+                                </button>
+                                <button *ngIf="book.activate == true" class="btn btn-default pull-right" (click)="onMoveWidget(i, i+1)" style="float: right;">
+                                        <fa name="arrow-right"></fa>
+                                </button>
+                                <button *ngIf="book.activate == true" class="btn btn-default pull-right" style="float: right;">
+                                        <fa name="cog"></fa>
+                                </button>
+                                <button *ngIf="book.activate == true" class="btn btn-default pull-right" (click)="onDeleteWidget(book)" style="float: right;">
+                                        <fa name="close"></fa>
+                                </button>
+                        </div>
+                </div>
+                <div class="container">
+                        <div *ngIf="book.widget=='youtube' && book.activate == true && book.param1 != 0">
+                                <app-youtube videoId='{{book.param1}}'></app-youtube>
+                        </div>
+                        <div *ngIf="book.widget=='meteo' && book.activate == true">
+                                <app-meteo-widget city='{{book.param1}}'></app-meteo-widget>
+                        </div>
+                        <div *ngIf="book.widget=='exchanges' && book.activate == true">
+                                <app-exchanges-widget></app-exchanges-widget>
+                        </div>
+                        <div *ngIf="book.widget=='movie' && book.activate == true">
+                                <app-movie-widget></app-movie-widget>
+                        </div>
+                        <div *ngIf="book.widget=='cocktail' && book.activate == true">
+                                <app-cocktail-widget></app-cocktail-widget>
+                        </div>
+                        <div *ngIf="book.widget=='translate' && book.activate == true">
+                                <app-translate-widget></app-translate-widget>
+                        </div>
+                        <div *ngIf="book.widget=='nasa' && book.activate == true">
+                                <app-nasa-widget></app-nasa-widget>
+                        </div>
+                </div>
+        </div>
+</div>

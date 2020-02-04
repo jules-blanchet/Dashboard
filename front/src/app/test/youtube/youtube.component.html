@@ -1,0 +1,5 @@
+<div class="card">
+    <img class="Ytimg" *ngIf="this.youtube['videoId'] != 0" src="https://img.youtube.com/vi/{{this.youtube['videoId']}}/0.jpg">
+    <p class="textInWidget">Video: {{this.youtube['videoId']}}</p>
+    <p class="textInWidget">Vues: {{this.youtube['viewCount']}}</p>
+</div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Login page</title>
+</head>
+
+<body>
+
+  <div class="titleDiv">
+    <img src="assets/dashboard-logo.gif" width=30%>
+    <h1> Dashboard </h1>
+  </div>
+
+  <form #loginForm="ngForm">
+
+    <div class="inputDiv">
+      <label for="idInputField">Email address: </label>
+      <input id="idInputField"
+             placeholder="Enter email address"
+             [(ngModel)]="credentials.email"
+             name="email"
+             #email="ngModel"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+             required>
+    </div>
+
+    <div class="inputDiv">
+      <label for="passwordInputField">Password: </label>
+      <input type="password"
+             id="passwordInputField"
+             placeholder="Enter your password"
+             [(ngModel)]="credentials.password"
+             name="password"
+             #password="ngModel"
+             required>
+    </div>
+
+    <!-- REQUEST ERROR -->
+    <div *ngIf="!response"
+         class="alert alert-danger">
+      Invalid email or password.
+    </div>
+
+    <div class="buttonDiv">
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid" (click)="onLogin()">Login</button>
+    </div>
+    <div class="buttonDiv">
+      <p>It's your first time on Dashboard ? <a routerLink="registerPage"> Create an account</a>.</p>
+    </div>
+
+  </form>
+
+</body>
+</html>

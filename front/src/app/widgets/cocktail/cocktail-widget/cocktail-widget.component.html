@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Meteo widget</title>
+</head>
+
+<body>
+
+<div>
+
+  <div  *ngIf="this.drinks && !this.cocktail">
+
+    <div class="scrolling-wrapper-flexbox">
+
+      <div class="card" *ngFor="let drink of this.drinks.drinks">
+        <img [src]="drink.strDrinkThumb" style="width: 200px;height: 200px;" (click)="this.getCocktail(drink.idDrink)">
+        <label class="cocktailDescription">{{drink.strDrink}}</label>
+      </div>
+
+    </div>
+
+    <div class="inputContainer">
+      <input placeholder="Enter cocktail name" (keyup)="this.updateCocktailSearch($event)">
+    </div>
+
+  </div>
+  <div class="cocktailContainer" *ngIf="this.cocktail">
+    <div>
+      <p class="cocktailTitle" >{{this.cocktail.strDrink}}</p>
+      <p class="cocktailInstruction">{{this.cocktail.strInstructions}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient1) ? this.cocktail.strIngredient1 + ': ' + this.cocktail.strMeasure1 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient2) ? this.cocktail.strIngredient2 + ': ' + this.cocktail.strMeasure2 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient3) ? this.cocktail.strIngredient3 + ': ' + this.cocktail.strMeasure3 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient4) ? this.cocktail.strIngredient4 + ': ' + this.cocktail.strMeasure4 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient5) ? this.cocktail.strIngredient5 + ': ' + this.cocktail.strMeasure5 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient6) ? this.cocktail.strIngredient6 + ': ' + this.cocktail.strMeasure6 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient7) ? this.cocktail.strIngredient7 + ': ' + this.cocktail.strMeasure7 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient8) ? this.cocktail.strIngredient8 + ': ' + this.cocktail.strMeasure8 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient9) ? this.cocktail.strIngredient9 + ': ' + this.cocktail.strMeasure9 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient10) ? this.cocktail.strIngredient10 + ': ' + this.cocktail.strMeasure10 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient11) ? this.cocktail.strIngredient11 + ': ' + this.cocktail.strMeasure11 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient12) ? this.cocktail.strIngredient12 + ': ' + this.cocktail.strMeasure12 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient13) ? this.cocktail.strIngredient13 + ': ' + this.cocktail.strMeasure13 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient14) ? this.cocktail.strIngredient14 + ': ' + this.cocktail.strMeasure14 : ''}}</p>
+      <p class="cocktailIngredient">{{(this.cocktail.strIngredient15) ? this.cocktail.strIngredient15 + ': ' + this.cocktail.strMeasure15 : ''}}</p>
+      <button class="btn btn-primary btn-lg" (click)="this.cocktail = null">Retour</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Forex widget</title>
+</head>
+
+<body>
+
+<div class="mainContainer">
+
+  <p class="textInWidget serviceName"><b>Forex</b></p>
+  <hr>
+
+  <div>
+    <label style="margin-right: 5px"><b>{{exchangesData ? firstCurrency + ": " : ""}}</b></label>
+    <label style="margin-right: 20px"><i>{{exchangesData ? (exchangesData.rates[firstCurrency] ? exchangesData.rates[firstCurrency] : 1) : ""}}</i></label>
+    <label style="margin-right: 5px"><b>{{exchangesData ? secondCurrency + ": " : ""}}</b></label>
+    <label><i>{{exchangesData ? (exchangesData.rates[secondCurrency] ? exchangesData.rates[secondCurrency] : 1): ""}}</i></label>
+  </div>
+
+  <label>Base: <b>{{exchangesData ? exchangesData.base : ""}}</b></label>
+
+  <hr>
+  <div>
+    <p><b>Select currency:</b></p>
+    <label class="titleSelect">Currency pair: </label>
+    <select id="firstCurrency" (change)="updateFirstCurrency($event)">
+      <option value="AUD">AUD</option>
+      <option value="BGN">BGN</option>
+      <option value="BRL">BRL</option>
+      <option value="CAD">CAD</option>
+      <option value="CHF">CHF</option>
+      <option value="CNY">CNY</option>
+      <option value="CZK">CZK</option>
+      <option value="DKK">DKK</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="HUF">HUF</option>
+      <option value="HKD">HKD</option>
+      <option value="HRK">HRK</option>
+      <option value="IDR">IDR</option>
+      <option value="ILS">ILS</option>
+      <option value="INR">INR</option>
+      <option value="ISK">ISK</option>
+      <option value="JPY">JPY</option>
+      <option value="KRW">KRW</option>
+      <option value="MXN">MXN</option>
+      <option value="MYR">MYR</option>
+      <option value="NOK">NOK</option>
+      <option value="NZD">NZD</option>
+      <option value="PHP">PHP</option>
+      <option value="PLN">PLN</option>
+      <option value="RON">RON</option>
+      <option value="RUB">RUB</option>
+      <option value="SEK">SEK</option>
+      <option value="SGD">SGD</option>
+      <option value="THB">THB</option>
+      <option value="TRY">TRY</option>
+      <option value="USD" selected="selected">USD</option>
+      <option value="ZAR">ZAR</option>
+    </select>
+
+    <label id="currencySeparator">/</label>
+
+    <select id="secondCurrency" (change)="updateSecondCurrency($event)">
+      <option value="AUD">AUD</option>
+      <option value="BGN">BGN</option>
+      <option value="BRL">BRL</option>
+      <option value="CAD" selected="selected">CAD</option>
+      <option value="CHF">CHF</option>
+      <option value="CNY">CNY</option>
+      <option value="CZK">CZK</option>
+      <option value="DKK">DKK</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="HUF">HUF</option>
+      <option value="HKD">HKD</option>
+      <option value="HRK">HRK</option>
+      <option value="IDR">IDR</option>
+      <option value="ILS">ILS</option>
+      <option value="INR">INR</option>
+      <option value="ISK">ISK</option>
+      <option value="JPY">JPY</option>
+      <option value="KRW">KRW</option>
+      <option value="MXN">MXN</option>
+      <option value="MYR">MYR</option>
+      <option value="NOK">NOK</option>
+      <option value="NZD">NZD</option>
+      <option value="PHP">PHP</option>
+      <option value="PLN">PLN</option>
+      <option value="RON">RON</option>
+      <option value="RUB">RUB</option>
+      <option value="SEK">SEK</option>
+      <option value="SGD">SGD</option>
+      <option value="THB">THB</option>
+      <option value="TRY">TRY</option>
+      <option value="USD">USD</option>
+      <option value="ZAR">ZAR</option>
+    </select>
+  </div>
+
+  <div>
+    <label class="titleSelect">Base currency: </label>
+    <select id="baseCurrency" (change)="updateBaseCurrency($event)">
+      <option value="AUD">AUD</option>
+      <option value="BGN">BGN</option>
+      <option value="BRL">BRL</option>
+      <option value="CAD">CAD</option>
+      <option value="CHF">CHF</option>
+      <option value="CNY">CNY</option>
+      <option value="CZK">CZK</option>
+      <option value="DKK">DKK</option>
+      <option value="EUR" selected="selected">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="HUF">HUF</option>
+      <option value="HKD">HKD</option>
+      <option value="HRK">HRK</option>
+      <option value="IDR">IDR</option>
+      <option value="ILS">ILS</option>
+      <option value="INR">INR</option>
+      <option value="ISK">ISK</option>
+      <option value="JPY">JPY</option>
+      <option value="KRW">KRW</option>
+      <option value="MXN">MXN</option>
+      <option value="MYR">MYR</option>
+      <option value="NOK">NOK</option>
+      <option value="NZD">NZD</option>
+      <option value="PHP">PHP</option>
+      <option value="PLN">PLN</option>
+      <option value="RON">RON</option>
+      <option value="RUB">RUB</option>
+      <option value="SEK">SEK</option>
+      <option value="SGD">SGD</option>
+      <option value="THB">THB</option>
+      <option value="TRY">TRY</option>
+      <option value="USD">USD</option>
+      <option value="ZAR">ZAR</option>
+    </select>
+  </div>
+
+</div>
+
+</body>
+
+</html>

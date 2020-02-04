@@ -1,0 +1,100 @@
+----------------------------- # GET STARTED ------------------
+
+in repository, run command -> sudo docker-compose up --build and in another
+terminal if you want to access to a container, run this command
+-> sudo docker exec -it dev_dashboard_2019_{container-name}_1 bash.
+
+Finaly, it's ok, EVERITHING IS GOOD ! you can CALL my beautiful API
+
+All header must have Authorization key and value = "Bearer + {token}"
+exception -> route for post user and route /login
+the Token is able in the response body of login !
+
+-------------------------- # Routes for Users --------------------------
+
+// Create User [POST]
+http://{ip_server}:8080/users
+
+Body = {
+  password: string,
+  email: string,
+  name: string
+}
+
+// Get all Users [GET]
+http://{ip_server}:8080/users
+
+// Login [POST]
+htpp://{ip_server}:8080/login
+
+Body = {
+  email: string,
+  password: string
+}
+
+// Delete all data in database [GET]
+http://{ip_server}:8080/delete/all
+
+
+------------------------- # Routes for Services -------------------------
+
+// Create Service [POST]
+http://{ip_server}:8080/services
+
+Body = {
+  name: string
+}
+
+// Get all Services [GET]
+http://{ip_server}:8080/services
+
+// Get Services for user logged [GET]
+http://{ip_server}:8080/services/me
+
+// Get Service by Id [GET]
+http://{ip_server}:8080/services/{id_service}
+
+// Delete Service [DELETE]
+http://{ip_server}:8080/service/{id_service}
+
+
+
+------------------------- # Routes for Widgets -------------------------
+
+// Create Widget [POST]
+http://{ip_server}:8080/widgets
+
+Body = {
+  name: string,
+  parameters: [string], // optionnal
+  service: string // service_id
+}
+
+// Get all Widgets [GET]
+http://{ip_server}:8080/widgets
+
+// Get Widgets for user logged [GET]
+http://{ip_server}:8080/widgets/me
+
+// Get Widget by Id [GET]
+http://{ip_server}:8080/widget/{id_widget}
+
+// Modify one widget [PUT]
+http://{ip_server}:8080/widget/{id_widget}
+
+Body = {
+    name: string,
+    parameters: [string], // optionnal
+    service: string // service_id
+}
+
+// Delete Widget [DELETE]
+http://{ip_server}:8080/widget/{id_widget}
+
+If you want to add widget and associated service isn't created yet, you must create the service first !
+
+
+------------------------------ # About.json -----------------------------------
+
+// print about.json file [GET]
+http://{ip_server}:8080/about.json

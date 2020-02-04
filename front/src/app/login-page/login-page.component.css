@@ -1,0 +1,21 @@
+.titleDiv {
+  text-align: center;
+  margin-top: 130px;
+  margin-bottom: 50px;
+}
+
+form {
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+.inputDiv {
+  margin-bottom: 10px;
+}
+
+.buttonDiv {
+  margin-top:10px;
+}

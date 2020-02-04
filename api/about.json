@@ -1,0 +1,90 @@
+{
+  "client ": {
+    "host":  "10.101.53.35"
+  },
+  "server ": {
+    "current_time ": 1531680780,
+    "services ": [
+      {
+        "name": "youtube",
+        "widgets ": [
+          {
+            "name": "video_view",
+            "description ": "Affichage  des vues sur une video youtube",
+            "params ": [
+              {
+                "name": "videoId",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "meteo",
+        "widgets ": [
+          {
+            "name": "meteoCity",
+            "description ": "Affichage  de la temperature d'une ville",
+            "params ": [
+              {
+                "name": "cityName",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "exchanges",
+        "widgets ": [
+          {
+            "name": "exchangeMoney",
+            "description ": "Affichage des taux de change",
+            "params ": []
+          }
+        ]
+      },
+      {
+        "name": "movie",
+        "widgets ": [
+          {
+            "name": "tendanceMovie",
+            "description ": "Affichage des film les plus tendances",
+            "params ": []
+          }
+        ]
+      },
+      {
+        "name": "drink",
+        "widgets ": [
+          {
+            "name": "cocktail",
+            "description ": "Affichage et recherche des ingrédients pour un cocktail",
+            "params ": []
+          }
+        ]
+      },
+      {
+        "name": "utils",
+        "widgets ": [
+          {
+            "name": "translate",
+            "description ": "outils permettant de traduire en 3 langues différentes",
+            "params ": []
+          }
+        ]
+      },
+      {
+        "name": "space",
+        "widgets ": [
+          {
+            "name": "nasa",
+            "description ": "affichage des astéroides passant près de la terre",
+            "params ": []
+          }
+        ]
+      }
+    ]
+  }
+}

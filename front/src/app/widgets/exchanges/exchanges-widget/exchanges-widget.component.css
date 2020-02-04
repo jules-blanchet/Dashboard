@@ -1,0 +1,24 @@
+.mainContainer {
+  text-align: center;
+}
+
+.serviceName {
+  font-size: 30px;
+}
+
+.titleSelect {
+  margin-right: 10px;
+}
+
+#currencySeparator {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bottomInput {
+  margin-top: 10px;
+}
+
+.buttonSearch {
+  margin-top: 20px;
+}
